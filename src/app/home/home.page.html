@@ -18,6 +18,9 @@
           <ion-card-content>
             <p>{{ entry.description }}</p>
           </ion-card-content>
+            <ion-button (click)="copy(entry.name, entry.description)">
+              Copy
+            </ion-button>
         </ion-card>
       </ion-item>
     </ion-list>

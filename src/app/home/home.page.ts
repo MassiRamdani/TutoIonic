@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Plugins } from '@capacitor/core';
+const { Clipboard } = Plugins;
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -18,6 +20,11 @@ export class HomePage {
     this.httpClient.get(this.API_URL).subscribe((entries: any[])=>{
       this.entries = entries;
     })
+  }
+  async copy(name: string, text: string){
+    Clipboard.write({
+      string:  name + ' is ' + text
+    });
   }
 
 }
